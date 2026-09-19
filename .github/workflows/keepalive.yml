@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping backend health check
-        run: curl -sSf https://support-chatbot-backend.onrender.com/api/health > /dev/null
+        run: curl -sSf https://customersupportchatbot-1jg5.onrender.com/api/health > /dev/null
