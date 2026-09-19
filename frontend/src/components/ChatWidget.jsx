@@ -1,5 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
+const API_BASE = import.meta.env.VITE_API_BASE_URL || ''
+
 const STATUS_LABELS = {
   thinking: 'Thinking',
   calling_tools: 'Checking records',
@@ -43,7 +45,7 @@ export default function ChatWidget({ examplePrompts = [] }) {
     const assistantId = makeId()
     setMessages((prev) => [...prev, { id: assistantId, role: 'assistant', text: '' }])
     try {
-      const res = await fetch('/api/chat', {
+      const res = await fetch(`${API_BASE}/api/chat`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text, conversation_id: conversationId }),
